@@ -1,3 +1,5 @@
+#Frequencies of various instruments
+#Add your frequencies to the below dictionary
 PITCHES = {
     'Guitar': {
         'E2': 082.41,
