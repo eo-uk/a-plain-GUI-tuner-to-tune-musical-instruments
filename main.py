@@ -103,3 +103,24 @@ class Program():
                 variable=self.string,
                 value=string,
             ).pack(side=LEFT)
+            
+    def display_update(self):
+        '''Calculates pitch and displays the results.'''
+        try:
+            while True:
+                #If a string has been chosen
+                if self.string.get():
+                    instrument = self.instrument.get()
+                    string = self.string.get()
+                    #Listen to the microphone and compare its pitch to
+                    #the target pitch value of the string chosen
+                    text, delta = tuner.check(PITCHES[instrument][string])
+                else:
+                    text, delta = 'Pick a String', ''
+                    
+                #Update the display variables
+                self.display_text.set(text)
+                self.display_offset.set(delta)
+                
+        except RuntimeError:
+            pass
