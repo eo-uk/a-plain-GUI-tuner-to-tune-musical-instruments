@@ -124,3 +124,12 @@ class Program():
                 
         except RuntimeError:
             pass
+
+    def display_error(self, *args):
+        '''Displays errors in a messagebox.'''
+        #Format exceptions, display in messagebox
+        error = traceback.format_exception(*args)
+        messagebox.showerror(
+            title = 'Error',
+            message = 'An Error Has Occured: \n\n' + '\n'.join(error)
+        )
