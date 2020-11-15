@@ -82,3 +82,24 @@ class Program():
 
         #Start the main loop
         mainloop()
+        
+    def draw_radios(self, event=None):
+        '''Redraws the radio buttons for strings.'''
+        #Clear current radio buttons
+        for widget in self.radio_cont.winfo_children():
+            widget.destroy()
+
+        #Reset current string
+        self.string.set('') 
+            
+        #Get string names for the current instrument
+        strings = PITCHES[self.instrument.get()].keys()
+        
+        #Create radio buttons
+        for string in strings:
+            Radiobutton(
+                self.radio_cont,
+                text=string,
+                variable=self.string,
+                value=string,
+            ).pack(side=LEFT)
