@@ -133,3 +133,6 @@ class Program():
             title = 'Error',
             message = 'An Error Has Occured: \n\n' + '\n'.join(error)
         )
+
+if __name__ == '__main__':
+    Program()
